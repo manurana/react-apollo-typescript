@@ -9,7 +9,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ logoutHandler }) => (
-  <Navbar expand className="m-bottom-0">
+  <Navbar className="m-bottom-0">
     {/* <Navbar.Header className="navHeader"> */}
     <Navbar.Brand className="navBrand">GraphQL Tutorial App</Navbar.Brand>
 

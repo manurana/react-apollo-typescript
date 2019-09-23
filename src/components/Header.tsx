@@ -9,16 +9,16 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ logoutHandler }) => (
-  <Navbar fluid className="m-bottom-0">
-    <Navbar.Header className="navHeader">
-      <Navbar.Brand className="navBrand">GraphQL Tutorial App</Navbar.Brand>
+  <Navbar expand className="m-bottom-0">
+    {/* <Navbar.Header className="navHeader"> */}
+    <Navbar.Brand className="navBrand">GraphQL Tutorial App</Navbar.Brand>
 
-      <Nav pullRight>
-        <NavItem>
-          <LogoutBtn logoutHandler={logoutHandler} />
-        </NavItem>
-      </Nav>
-    </Navbar.Header>
+    <Nav>
+      <NavItem>
+        <LogoutBtn logoutHandler={logoutHandler} />
+      </NavItem>
+    </Nav>
+    {/* </Navbar.Header> */}
   </Navbar>
 );
 

@@ -1,0 +1,16 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "react-app",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "react"],
+  "rules": {
+    // remove this when the create-react-app version updates
+    // https://github.com/typescript-eslint/typescript-eslint/issues/863
+    // https://github.com/facebook/create-react-app/pull/7540
+    "@typescript-eslint/no-angle-bracket-type-assertion": "off"
+  }
+}
+

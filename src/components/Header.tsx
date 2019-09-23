@@ -2,10 +2,8 @@ import React from "react";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import LogoutBtn from "./Auth/LogoutBtn";
 
-type LogoutHandler = () => any;
-
-interface HeaderProps {
-  logoutHandler: LogoutHandler;
+export interface HeaderProps {
+  logoutHandler: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ logoutHandler }) => (

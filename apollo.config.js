@@ -1,0 +1,15 @@
+module.exports = {
+  client: {
+    service: {
+      name: "todo",
+      url: "https://learn.hasura.io/graphql",
+      // optional headers
+      headers: {
+        authorization:
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDVkODhmNWQ5OGZhNzlhMGRlMmRhOTY3MiJ9LCJuaWNrbmFtZSI6Im0iLCJuYW1lIjoibUB0LmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci8xODEyZmI4ZjgzYjNhNmNlZGFlNjI1YjQ3MGJjNmI0Mz9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRm0ucG5nIiwidXBkYXRlZF9hdCI6IjIwMTktMDktMjNUMTg6NTQ6MTYuMjcxWiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkODhmNWQ5OGZhNzlhMGRlMmRhOTY3MiIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNTY5MjY0ODU2LCJleHAiOjE1NjkzMDA4NTYsImF0X2hhc2giOiJDWHdadFZYTmdRRk5TUmZGRHNxR1BnIiwibm9uY2UiOiJGUjFscmkwWnhLUHBRY2xLUXRKN05GY1Foc3ptanJzdiJ9.fdF_elKQo-8WJqm83YVDOnPZ5iwwOyDdlE9CPaeAozHCYfOAM03VcEGE92WXxxBE0qIV4Oq2gD7B-7iaImL52kNgeJvplSqoWmbdkOY4NmukECnBaPMbClClPPbinzHT3068qr0cq9HMHFRzNjspS3WavHr37vpg6wdSfs4crZ67899gGRwSgvnAdXUwdNMcDSUUOYSeaivoxlgWK2jqjV0BNTWfoTpF6jKVad0Qx8DDbrGSWWsCeVjzLs4B0Qkz7GG6itg5xBdOtpp_nrtSec5MvvNqxsslLz8f8PnEcUsZZPThaSnRVmxj306GQgPA8CE932d2xN1lLCHsmEarGA"
+      },
+      // optional disable SSL validation check
+      skipSSLValidation: true
+    }
+  }
+};

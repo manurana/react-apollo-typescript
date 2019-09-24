@@ -166,7 +166,12 @@ class Auth0Wrapper extends React.Component<RouteComponentProps, State> {
     return (
       <App
         {...this.props}
-        auth={{ ...this.state, login: this.login, logout: this.logout }}
+        auth={{
+          ...this.state,
+          idToken: this.idToken,
+          login: this.login,
+          logout: this.logout
+        }}
       />
     );
   }

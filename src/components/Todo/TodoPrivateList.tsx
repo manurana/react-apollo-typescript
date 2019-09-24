@@ -5,6 +5,8 @@ import React, { Component, Fragment } from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
+import { getMyTodos } from "../../__generated__/getMyTodos";
+
 const GET_MY_TODOS = gql`
   query getMyTodos {
     todos(
@@ -83,21 +85,24 @@ class TodoPrivateList extends Component {
   }
 }
 
-const TodoPrivateListQuery = () => {
-  return (
-    <Query query={GET_MY_TODOS}>
-      {({ loading, error, data, client }) => {
-        if (loading) {
-          return <div>Loading...</div>;
-        }
-        if (error) {
-          console.error(error);
-          return <div>Error!</div>;
-        }
-        return <TodoPrivateList client={client} todos={data.todos} />;
-      }}
-    </Query>
-  );
-};
+const TodoPrivateListQuery: React.FC = () => (
+  <Query<getMyTodos> query={GET_MY_TODOS}>
+    {({ loading, error, data, client }) => {
+      if (loading) {
+        return <div>Loading...</div>;
+      }
+      if (error) {
+        console.error(error);
+        return <div>Error!</div>;
+      }
+      if (data) {
+        // return <TodoPrivateList client={client} todos={data.todos} />;
+        console.log("data", data);
+        return <Fragment />;
+      }
+      return <Fragment />;
+    }}
+  </Query>
+);
 
-export default TodoPrivateList;
+export default TodoPrivateListQuery;

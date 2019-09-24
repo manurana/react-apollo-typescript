@@ -8,7 +8,7 @@ import { Query } from "react-apollo";
 import { getMyTodos, getMyTodos_todos } from "../../__generated__/getMyTodos";
 import ApolloClient from "apollo-client";
 
-const GET_MY_TODOS = gql`
+export const GET_MY_TODOS = gql`
   query getMyTodos {
     todos(
       where: { is_public: { _eq: false } }

@@ -6,7 +6,6 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
 import { getMyTodos, getMyTodos_todos } from "../../__generated__/getMyTodos";
-import ApolloClient from "apollo-client";
 
 export const GET_MY_TODOS = gql`
   query getMyTodos {

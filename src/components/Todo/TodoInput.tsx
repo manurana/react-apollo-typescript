@@ -8,7 +8,7 @@ import {
   insertTodo,
   insertTodoVariables
 } from "../../__generated__/insertTodo";
-import { getMyTodos, getMyTodos_todos } from "../../__generated__/getMyTodos";
+import { getMyTodos } from "../../__generated__/getMyTodos";
 
 const ADD_TODO = gql`
   mutation insertTodo($todo: String!, $isPublic: Boolean!) {

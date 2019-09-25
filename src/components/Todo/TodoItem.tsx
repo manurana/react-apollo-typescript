@@ -1,5 +1,4 @@
 import React, { SyntheticEvent } from "react";
-// import ApolloClient from "apollo-client";
 import { withApollo, WithApolloClient } from "react-apollo";
 import gql from "graphql-tag";
 import { getMyTodos_todos } from "../../__generated__/getMyTodos";
@@ -7,11 +6,11 @@ import { GET_MY_TODOS } from "./TodoPrivateList";
 
 // https://www.trysmudford.com/blog/named-exports-withapollo-typescript-react/
 // https://github.com/apollographql/react-apollo/issues/1759
+// https://github.com/apollographql/react-apollo/issues/1759#issuecomment-503945304
 
 export interface Props {
   index: string;
   todo: getMyTodos_todos;
-  // client: ApolloClient<any>;
 }
 
 const TodoItem: React.FC<WithApolloClient<Props>> = ({
@@ -68,6 +67,4 @@ const TodoItem: React.FC<WithApolloClient<Props>> = ({
   );
 };
 
-export default withApollo(TodoItem);
-// export default withApollo<{}, {}>(TodoItem);
-// const MyAppWithApollo = withApollo<{}, {}>(MyApp);
+export default withApollo<Props>(TodoItem);

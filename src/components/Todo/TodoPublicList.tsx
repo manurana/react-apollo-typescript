@@ -8,8 +8,16 @@ import {
   notifyNewPublicTodos_todos
 } from "../../__generated__/notifyNewPublicTodos";
 
-import { getNewPublicTodos_todos } from "../../__generated__/getNewPublicTodos";
-import { getOldPublicTodos_todos } from "../../__generated__/getOldPublicTodos";
+import {
+  getNewPublicTodos,
+  getNewPublicTodosVariables,
+  getNewPublicTodos_todos
+} from "../../__generated__/getNewPublicTodos";
+import {
+  getOldPublicTodos,
+  getOldPublicTodosVariables,
+  getOldPublicTodos_todos
+} from "../../__generated__/getOldPublicTodos";
 
 interface MyProps {
   latestTodo: notifyNewPublicTodos_todos;
@@ -51,7 +59,7 @@ class TodoPublicListInternal extends Component<
       }
     `;
     this.props.client
-      .query({
+      .query<getNewPublicTodos, getNewPublicTodosVariables>({
         query: GET_NEW_PUBLIC_TODOS,
         variables: {
           // FIXME: this is a wierd type error
@@ -94,7 +102,7 @@ class TodoPublicListInternal extends Component<
       }
     `;
     this.props.client
-      .query({
+      .query<getOldPublicTodos, getOldPublicTodosVariables>({
         query: GET_OLD_PUBLIC_TODOS,
         variables: { oldestTodoId: this.oldestTodoId }
       })

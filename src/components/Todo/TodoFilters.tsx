@@ -2,6 +2,7 @@
 import React from "react";
 import { getMyTodos_todos } from "../../__generated__/getMyTodos";
 
+// TODO: get this at a common place
 type filter = "all" | "completed" | "active";
 
 export interface Props {

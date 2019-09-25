@@ -21,6 +21,7 @@ export const GET_MY_TODOS = gql`
   }
 `;
 
+// TODO: get this at a common place
 type filter = "all" | "completed" | "active";
 
 interface MyProps {

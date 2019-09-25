@@ -3,7 +3,7 @@ import React, { Component, Fragment } from "react";
 import TodoItem from "./TodoItem";
 import TodoFilters from "./TodoFilters";
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
+import { Query, WithApolloClient } from "react-apollo";
 
 import { getMyTodos, getMyTodos_todos } from "../../__generated__/getMyTodos";
 
@@ -24,7 +24,6 @@ export const GET_MY_TODOS = gql`
 type filter = "all" | "completed" | "active";
 
 interface MyProps {
-  // client: ApolloClient;
   todos: getMyTodos_todos[];
 }
 
@@ -33,7 +32,7 @@ interface MyState {
   clearInProgress: boolean;
 }
 
-class TodoPrivateList extends Component<MyProps, MyState> {
+class TodoPrivateList extends Component<WithApolloClient<MyProps>, MyState> {
   state: MyState = {
     filter: "all",
     clearInProgress: false
@@ -46,7 +45,30 @@ class TodoPrivateList extends Component<MyProps, MyState> {
     });
   };
 
-  clearCompleted = () => {};
+  clearCompleted = () => {
+    // Remove all the todos that are completed
+    const CLEAR_COMPLETED = gql`
+      mutation clearCompleted {
+        delete_todos(
+          where: { is_completed: { _eq: true }, is_public: { _eq: false } }
+        ) {
+          affected_rows
+        }
+      }
+    `;
+
+    this.props.client.mutate({
+      mutation: CLEAR_COMPLETED,
+      optimisticResponse: {},
+      update: (cache, { data }) => {
+        const existingTodos: getMyTodos = cache.readQuery({
+          query: GET_MY_TODOS
+        }) || { todos: [] };
+        const newTodos = existingTodos.todos.filter(t => !t.is_completed);
+        cache.writeQuery({ query: GET_MY_TODOS, data: { todos: newTodos } });
+      }
+    });
+  };
 
   render(): React.ReactNode {
     const { todos } = this.props;
@@ -93,7 +115,7 @@ const TodoPrivateListQuery: React.FC = () => (
         return <div>Error!</div>;
       }
       if (data) {
-        return <TodoPrivateList todos={data.todos} />;
+        return <TodoPrivateList client={client} todos={data.todos} />;
         // console.log("data", data);
         // return (
         //   <Fragment>

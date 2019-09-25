@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "./components/Header";
 import TodoPrivateWrapper from "./components/Todo/TodoPrivateWrapper";
-// import TodoPublicWrapper from "./components/ToDo/TodoPublicWrapper";
+import TodoPublicWrapper from "./components/Todo/TodoPublicWrapper";
 import OnlineUsersWrapper from "./components/OnlineUsers/OnlineUsersWrapper";
 
 import ApolloClient from "apollo-client";
@@ -39,9 +39,9 @@ const App = ({ auth }: any) => {
             <div className="col-xs-12 col-md-6 sliderMenu p-30">
               <TodoPrivateWrapper />
             </div>
-            {/* <div className="col-xs-12 col-md-6 sliderMenu p-30 bg-gray border-right">
-            <TodoPublicWrapper />
-          </div> */}
+            <div className="col-xs-12 col-md-6 sliderMenu p-30 bg-gray border-right">
+              <TodoPublicWrapper />
+            </div>
           </div>
           <div className="col-xs-12 col-md-3 p-left-right-0">
             <div className="col-xs-12 col-md-12 sliderMenu p-30 bg-gray">

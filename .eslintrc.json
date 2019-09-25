@@ -10,6 +10,8 @@
     // remove this when the create-react-app version updates
     // https://github.com/typescript-eslint/typescript-eslint/issues/863
     // https://github.com/facebook/create-react-app/pull/7540
-    "@typescript-eslint/no-angle-bracket-type-assertion": "off"
+    "@typescript-eslint/no-angle-bracket-type-assertion": "off",
+    // this is to not flag the generated types
+    "@typescript-eslint/camelcase": "off"
   }
 }
